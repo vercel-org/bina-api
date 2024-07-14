@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 require('dotenv').config()
+const cors = require('cors')
 
 
 const component = require('./routes/form-component')
@@ -21,6 +22,7 @@ const notFound = require('./middleware/not-found')
 
 app.use(express.json())
 
+app.use(cors())
 //route
 app.use('/api/v1',[component,country,role,agent,user,job_order,news_event,register])
 app.use(errorHandler)
