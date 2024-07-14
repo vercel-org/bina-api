@@ -24,6 +24,8 @@ app.use(express.json())
 
 app.use(cors())
 //route
+const path = require('path')
+app.use(express.static(path.join(__dirname, './public')));
 app.use('/api/v1',[component,country,role,agent,user,job_order,news_event,register])
 app.use(errorHandler)
 app.use(notFound)
